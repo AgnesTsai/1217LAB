@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Calculator</title>
+	<link rel="stylesheet" href="style.css">
+	
+	<link rel="stylesheet" href="nice-select.css">
+</head>
+<body>
+	<div id="form">
+	<form class="lu" >
+		<label>
+		<h2 class="coo">JS Calculator</h2>
+		<br>
+		<p class="coo">Number 1</p>
+		<input type="text" id="Num1" class="co">
+		<p class="coo">Number 2</p>
+		<input type="text" id="Num2" class="co">
+		<p class="coo">Operate way?</p>
+
+		<select id="cha" onchange="setMethod(this.value)" class="nice-select" >
+			<option value="+">+</option>
+			<option value="-">-</option>
+			<option value="*">*</option>
+			<option value="/">/</option>
+		</select>
+<br><br>
+		<input type="button" value="Start" onclick="Calculator()" class="Add" id="Calculate" class="submit">
+<br><br>
+		<p id="ans" class="coo"></p>
+		</label>
+
+	</form>
+	
+</div>
+
+	<script type="text/javascript">
+		function Calculator(){
+			var method = document.getElementById("cha").value;
+			var firstNum = parseInt(document.getElementById("Num1").value);
+			var secondNum = parseInt(document.getElementById("Num2").value);
+			var result;
+				if(method == "+"){
+					result = firstNum + secondNum;
+				}else if(method == "-"){
+					result = firstNum - secondNum;
+				}else if(method == "*"){
+					result = firstNum * secondNum;
+				}else if(method == "/"){
+					result = firstNum / secondNum;
+				}
+				document.getElementById("ans").innerHTML = "Result = "+result;
+		}
+
+		function method(method){
+			var calculatorW = document.getElementById("Calculator");
+				if(method == "+"){
+					calculatorW.value = "Add";
+				}else if(method == "-"){
+					calculatorW.value = "Minus";
+				}else if(method == "*"){
+					calculatorW.value = "Times";
+				}else if(method == "/"){
+					calculatorW.value = "Divided";
+				}
+		}
+	</script>
+</body>
+</html>
